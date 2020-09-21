@@ -1,0 +1,14 @@
+version: '2'
+services: 
+  vehicle-service:
+    build: .
+    ports:
+      - "3000:3000"
+    links: 
+      - db
+  db:
+    restart: always
+    container_name: db
+    image: mongo
+    ports:
+      - "27017:27017"
